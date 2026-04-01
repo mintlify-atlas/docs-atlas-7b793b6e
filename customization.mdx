@@ -1,0 +1,166 @@
+---
+title: "Customization"
+description: "How to update colors, products, team members, and contact details."
+---
+
+## Changing brand colors
+
+Brand colors are defined in a `tailwind.config` block inside a `<script>` tag in the `<head>` of `index.html`. Tailwind reads this configuration at runtime and makes the color names available as utility classes throughout the file.
+
+```javascript
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#E11D48',
+        secondary: '#1F2937',
+        accent: '#F59E0B',
+        light: '#FDFBF9',
+        dark: '#111827'
+      }
+    }
+  }
+}
+```
+
+To change a color, replace its hex value in this block. Every element that uses the corresponding Tailwind class (e.g., `bg-primary`, `text-secondary`) will update automatically.
+
+| Color | Hex | Used for |
+|---|---|---|
+| `primary` | `#E11D48` | Buttons, price text, active nav hover, section heading accents, contact info panel background |
+| `secondary` | `#1F2937` | Navigation bar, product names, section headings, footer background |
+| `accent` | `#F59E0B` | Optional accent — not applied to any element in the current markup |
+| `light` | `#FDFBF9` | Page background (`<body>`) |
+| `dark` | `#111827` | Dark elements — available for use in custom additions |
+
+<Tip>
+  The Tailwind CDN (`https://cdn.tailwindcss.com`) is intended for development and prototyping. For a production site, install Tailwind CSS as a build tool to generate a minimal, optimized CSS file instead of loading the full runtime from a CDN.
+</Tip>
+
+## Updating the product catalog
+
+Each product is a `<div>` with the class `product-card` inside the `#productos` section. Here is the first product card as it appears in the source:
+
+```html
+<!-- Producto 1 -->
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+    <img src="producto1.jpg"
+         alt="Vestido negro elegante" class="w-full h-64 object-cover">
+    <div class="p-4">
+        <h3 class="font-semibold text-lg text-secondary">Vestido Negro</h3>
+        <p class="text-gray-600 text-sm mt-1">Perfecto para rendir el coba</p>
+        <div class="flex justify-between items-center mt-4">
+            <span class="text-primary font-bold">$59.99</span>
+            <button class="bg-secondary text-white px-3 py-1 rounded text-sm hover:bg-opacity-90">Agregar</button>
+        </div>
+    </div>
+</div>
+```
+
+To update an existing product, change these four values:
+
+| Attribute | Where | What to change |
+|---|---|---|
+| `src` | `<img src="...">` | Path to the product image file |
+| `alt` | `<img alt="...">` | Descriptive alt text for the image |
+| Product name | `<h3>` text | The display name shown on the card |
+| Description | `<p>` text | The short description below the name |
+| Price | `<span>` text inside `.text-primary` | The price string (e.g., `$59.99`) |
+
+## Adding a new product
+
+<Steps>
+  <Step title="Add the product image">
+    Place your new product image file (e.g., `producto5.jpg`) in the `actividad2_schujman/` directory alongside the other product images.
+  </Step>
+  <Step title="Copy the product card template">
+    Copy the following template and paste it inside the product grid `<div>` in the `#productos` section, after the last existing product card:
+
+    ```html
+    <!-- Producto 5 -->
+    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+        <img src="producto5.jpg"
+             alt="Descripción del producto" class="w-full h-64 object-cover">
+        <div class="p-4">
+            <h3 class="font-semibold text-lg text-secondary">Nombre del Producto</h3>
+            <p class="text-gray-600 text-sm mt-1">Descripción breve del producto</p>
+            <div class="flex justify-between items-center mt-4">
+                <span class="text-primary font-bold">$0.00</span>
+                <button class="bg-secondary text-white px-3 py-1 rounded text-sm hover:bg-opacity-90">Agregar</button>
+            </div>
+        </div>
+    </div>
+    ```
+  </Step>
+  <Step title="Update the placeholder values">
+    Replace `producto5.jpg`, the `alt` text, the product name, description, and price with the actual values for your new item.
+  </Step>
+</Steps>
+
+## Updating team members
+
+Each team member is a `<div>` inside the 5-column grid in the `#nosotros` section. Here is the first team member card as it appears in the source:
+
+```html
+<!-- Integrante 1 -->
+<div class="flex flex-col items-center bg-gray-50 p-6 rounded-lg shadow">
+    <img src="goat.jpg" alt="Integrante 1" class="w-32 h-32 rounded-full mb-4 object-cover">
+    <h4 class="text-lg font-bold text-secondary mb-2">Gabriel Moreno</h4>
+    <p class="text-gray-600 text-center">Dueño</p>
+</div>
+```
+
+To update a team member, change these values:
+
+| Attribute | Where | What to change |
+|---|---|---|
+| `src` | `<img src="...">` | Path to the team member's photo |
+| `alt` | `<img alt="...">` | Alt text for the photo |
+| Name | `<h4>` text | The member's display name |
+| Role | `<p>` text | The member's role or title |
+
+## Editing contact information
+
+Contact details are hardcoded in the right-hand panel of the `#contacto` section. To update them, locate and edit the following elements in `index.html`:
+
+**Address** — find the `<p>` tag under the "Dirección" heading:
+
+```html
+<h4 class="text-lg font-semibold mb-2">Dirección</h4>
+<p>interseccion Av Vicky y boulevar Tasada</p>
+```
+
+**Phone numbers** — find the `<p>` tags under the "Teléfonos" heading:
+
+```html
+<h4 class="text-lg font-semibold mb-2">Teléfonos</h4>
+<p>911</p>
+<p>+54 9 341 684-8893</p>
+```
+
+**Form submission email** — the contact form submits via `mailto:`. To change the recipient address, update the `action` attribute on the `<form>` tag:
+
+```html
+<form name="form1" action="mailto:fran.reyes3223@gmail.com" method="post" enctype="text/plain" onsubmit="showAlert()">
+```
+
+Replace `fran.reyes3223@gmail.com` with the desired recipient email address.
+
+## Adding navigation links
+
+Navigation anchor links follow this pattern in the `<nav>` element:
+
+```html
+<a href="#inicio" class="hover:text-primary transition font-medium">Inicio</a>
+<a href="#nosotros" class="hover:text-primary transition font-medium">Nosotros</a>
+<a href="#productos" class="hover:text-primary transition font-medium">Productos</a>
+<a href="#contacto" class="hover:text-primary transition font-medium">Contacto</a>
+```
+
+To add a new link, copy one of the existing `<a>` tags, update the `href` to match the `id` of the target section, and update the link text. Make sure the corresponding section has a matching `id` attribute, for example:
+
+```html
+<section id="nueva-seccion" class="py-16 bg-white">
+  <!-- section content -->
+</section>
+```

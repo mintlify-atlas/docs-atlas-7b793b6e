@@ -1,0 +1,39 @@
+{
+  "projectType": "frontend",
+  "projectName": "AuraStyle",
+  "projectDescription": "A static single-page e-commerce website for AuraStyle, a fictional fashion clothing store offering a Spring/Summer collection with product listings and a contact form.",
+  "theme": "almond",
+  "primaryColor": "#E11D48",
+  "lightColor": "#FDFBF9",
+  "darkColor": "#111827",
+  "navigation": {
+    "groups": [
+      {
+        "group": "Overview",
+        "pages": ["introduction", "about"]
+      },
+      {
+        "group": "The Store",
+        "pages": ["products", "contact"]
+      },
+      {
+        "group": "Project",
+        "pages": ["structure", "customization"]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Single-page responsive layout using Tailwind CSS",
+    "Product catalog with 4 items (Vestido Negro, Camisa Negra, Abrigo de Invierno, Gafas de Sol Premium)",
+    "Team/About section with 5 team member profiles",
+    "Contact form with mailto action (name, email, WhatsApp, gender, CV upload)",
+    "Social media links (Instagram/VSCO, WhatsApp, Facebook)",
+    "Fixed navigation bar with smooth anchor links",
+    "Spring/Summer collection hero section with 3% discount promotion"
+  ],
+  "publicApiSurface": [
+    "index.html — main entry point with all sections (inicio, nosotros, productos, contacto)",
+    "Contact form (POST to mailto:fran.reyes3223@gmail.com)",
+    "Product cards: Vestido Negro ($59.99), Camisa Negra ($42.00), Abrigo de invierno ($89.99), Gafas de Sol Premium ($69.99)"
+  ]
+}

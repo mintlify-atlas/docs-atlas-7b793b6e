@@ -1,0 +1,76 @@
+---
+title: "Project structure"
+description: "File layout, site sections, and dependencies for the AuraStyle website."
+---
+
+## File structure
+
+All project files live in the `actividad2_schujman/` directory. There is no build output folder — the site runs directly from these source files.
+
+```bash
+actividad2_schujman/
+├── index.html          # Main site file (all sections)
+├── javascript.js       # JavaScript file (currently empty)
+├── aura.jpg            # Hero section image
+├── goat.jpg            # Team member: Gabriel Moreno
+├── geron.jpg           # Team member: Geronimo Chavarri
+├── nachon.jpg          # Team member: Ignacio Tasada
+├── francon.jpg         # Team member: Franco Reyes
+├── manon.jpg           # Team member: Manuel Ferrer Petit
+├── schumi.jpeg         # Team group photo
+├── producto1.jpg       # Vestido Negro product image
+├── producto2.jpg       # Camisa Negra product image
+├── producto3.jpg       # Abrigo de Invierno product image
+└── producto4.jpg       # Gafas de Sol Premium product image
+```
+
+<Note>
+  The entire site is contained in a single `index.html` file. All styling is handled by Tailwind CSS loaded via CDN, so there is no compiled CSS file.
+</Note>
+
+## Site sections
+
+The page is divided into six structural areas defined by HTML landmarks and `id` attributes used for anchor navigation.
+
+| Section | Selector | Purpose |
+|---|---|---|
+| Navigation bar | `<nav>` | Fixed top bar with logo, anchor links to all sections, and social media icons (Instagram, WhatsApp, Facebook) |
+| Hero | `#inicio` | Full-width hero with the "Nueva Colección Primavera/Verano" headline, a 3% discount badge, a "Ver Colección" CTA button, and the `aura.jpg` hero image |
+| About | `#nosotros` | Team member grid (5 cards), brand story text, values list, and a "¿Por qué elegirnos?" callout |
+| Products | `#productos` | Responsive 4-column product grid, each card containing an image, name, short description, price, and an "Agregar" button |
+| Contact | `#contacto` | Contact form (submits via `mailto:`) on the left and a contact info panel on the right |
+| Footer | `<footer>` | Brand tagline, policy links, and copyright notice |
+
+## Dependencies
+
+The project loads two external libraries via CDN. No npm install or local download is required.
+
+| Library | Version | URL |
+|---|---|---|
+| Tailwind CSS | latest (CDN) | `https://cdn.tailwindcss.com` |
+| Font Awesome | 6.4.0 | `https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css` |
+
+Both are referenced in the `<head>` of `index.html`:
+
+```html
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+```
+
+## Running locally
+
+<Note>
+  No build step is needed. The site is plain HTML and loads all dependencies from CDN at runtime.
+</Note>
+
+<Steps>
+  <Step title="Locate the project folder">
+    Navigate to the `actividad2_schujman/` directory on your machine.
+  </Step>
+  <Step title="Open index.html in your browser">
+    Double-click `index.html`, or right-click and choose **Open with** → your preferred browser. You can also drag the file into an open browser window.
+  </Step>
+  <Step title="Verify the page loads">
+    The site should display the AuraStyle navigation bar and hero section. All product images and team photos must be in the same directory as `index.html` to render correctly.
+  </Step>
+</Steps>

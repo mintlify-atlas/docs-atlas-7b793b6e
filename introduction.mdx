@@ -1,0 +1,59 @@
+---
+title: "Introduction"
+description: "What AuraStyle is and how the site is structured."
+---
+
+AuraStyle is an Argentine fashion brand offering a Spring/Summer collection for the current season. The brand's site is a single-page storefront showcasing ready-to-wear pieces, the team behind the label, and channels to get in touch. Every garment is designed to express what the brand calls your "inner aura" — a distinct personal presence that fashion can amplify.
+
+The current collection runs a **3% discount on all products**, making this the best time to explore the range.
+
+<Note>
+  AuraStyle's website is a fully static site. It requires no server, no build tool, and no package manager. Open `index.html` directly in any browser and it works immediately.
+</Note>
+
+## Technology stack
+
+The site is built with three dependencies, all loaded from CDN:
+
+| Layer | Technology | Source |
+|---|---|---|
+| Markup | HTML5 | — |
+| Styling | Tailwind CSS | `cdn.tailwindcss.com` |
+| Icons | Font Awesome 6.4.0 | cdnjs.cloudflare.com |
+
+The Tailwind configuration is inlined in a `<script>` tag and extends the default theme with four brand colors:
+
+| Token | Hex | Usage |
+|---|---|---|
+| `primary` | `#E11D48` | Accent text, buttons, highlights |
+| `secondary` | `#1F2937` | Body text, navbar, footer |
+| `accent` | `#F59E0B` | Supporting highlights |
+| `light` | `#FDFBF9` | Page background |
+| `dark` | `#111827` | Deep backgrounds |
+
+## Site sections
+
+The page is divided into four named anchor sections. Each one is reachable from the fixed navigation bar at the top.
+
+<CardGroup cols={2}>
+  <Card title="Inicio" icon="house" href="/introduction">
+    The hero section. Introduces the Spring/Summer collection, shows the active 3% discount, and links directly to the product grid.
+  </Card>
+  <Card title="Nosotros" icon="users" href="/about">
+    Meet the five-person team and read the brand's founding story, COBA philosophy, and core values.
+  </Card>
+  <Card title="Productos" icon="shirt" href="/products">
+    A responsive grid of four featured products: Vestido Negro, Camisa Negra, Abrigo de Invierno, and Gafas de Sol Premium.
+  </Card>
+  <Card title="Contacto" icon="envelope" href="/contact">
+    A contact form (submits via `mailto:`) alongside address, business hours, phone numbers, and social media links.
+  </Card>
+</CardGroup>
+
+## Social channels
+
+AuraStyle maintains a presence on three platforms, all linked in the navigation bar and the contact section:
+
+- **Instagram / VSCO** — Visual gallery showcasing lookbook photography
+- **WhatsApp** — Direct messaging for order inquiries
+- **Facebook** — Community updates and announcements
